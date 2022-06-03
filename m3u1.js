@@ -39,7 +39,7 @@ async function getPage1() {
         })
         let datas = []
         for (let i = 0; i<nameArr.length && i<urlArr.length; i++) {
-            let item = {"name": nameArr[i], "address": urlArr[i]}
+            let item = {"name": nameArr[i], "address": urlArr[i], "image": "https://s3.bmp.ovh/imgs/2022/06/03/b00eeb1ee998105e.png"}
             datas.push(item)
         }
         let data = {"title":'国外', "canPlay": true, "data":datas}
