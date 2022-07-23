@@ -57,7 +57,7 @@ async function getPage2(index) {
     iNetwork.get(options, function(err, res, body){
         let obj = []
         if (version >= '1.5.0') {
-            obj = JSON.parse(body)
+            obj = JSON.parse(body).data
         }else {
             obj = body.data
         }
