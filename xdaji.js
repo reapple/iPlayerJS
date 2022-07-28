@@ -38,6 +38,7 @@ const apiHost = 'https://api.oidhfjg.com'
 const imageHost = 'https://static.oidhfjg.com'
 var headerKey = 'xdj_headers'
 var infoKey = 'xdj_info'
+var alertKey = 'xdj_alert'
 
 eval(init0());
 initConfig();
@@ -115,7 +116,14 @@ function showAlert() {
         let user = body.username;
         headerKey = `xdj_${user}_headers`;
         infoKey = `xdj_${user}_info`;
-        iUI.alert('警告⚠️', `使用该脚本可能会使账号异常，请慎重！继续使用造成的后果由使用者自行承担！\nt.me/ishared`, ['好的:destructive'],(index, title, textFileds)=>{
+        alertKey = `xdj_${user}_alert`
+        if (iUI.read(alertKey) != undefined) {
+            return false
+        }
+        iUI.alert('警告⚠️', `使用该脚本可能会使账号异常，请慎重！继续使用造成的后果由使用者自行承担！\nt.me/ishared`, ['好的:destructive', '不再提示'],(index, title, textFileds)=>{
+            if (title == '不再提示') {
+                iUI.write(alertKey, alertKey);
+            }
         });
         return false;
     }
