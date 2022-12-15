@@ -112,7 +112,7 @@ function homePage() {
 }
 
 function showAlert() {
-    if (body.hasOwnProperty('username') && header.hasOwnProperty('Authorization')) {
+    if (body.hasOwnProperty('username') && header.hasOwnProperty('X-Live-Butter2')) {
         let user = body.username;
         headerKey = `xdj_${user}_headers`;
         infoKey = `xdj_${user}_info`;
